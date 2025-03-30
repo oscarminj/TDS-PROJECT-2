@@ -5,6 +5,7 @@ from typing import Optional
 from app.utils.openai_client import get_openai_response
 from app.utils.file_handler import save_upload_file_temporarily
 
+# Initialize FastAPI app
 app = FastAPI(title="IITM Assignment API")
 
 # Add CORS middleware
@@ -15,6 +16,14 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.get("/")
+def home():
+    return {"message": "FastAPI is running!"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 @app.post("/api/")
 async def process_question(
@@ -36,9 +45,5 @@ async def process_question(
 
 import uvicorn
 
-def start():
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000)
-
 if __name__ == "__main__":
-    start()
-
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000)
