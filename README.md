@@ -2,17 +2,6 @@
 
 This API automatically answers questions from graded assignments for the IIT Madras Online Degree in Data Science.
 
-## Setup
-
-1. Clone this repository
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - Unix/MacOS: `source venv/bin/activate`
-4. Install dependencies: `pip install -r requirements.txt`
-5. Create a `.env` file with your `AIPROXY_TOKEN`
-6. Run the server: `uvicorn app.main:app --reload`
-
 ## Usage
 
 Send a POST request to the `/api/` endpoint with:
