@@ -20,13 +20,14 @@ app.add_middleware(
 async def head_check():
     return {"status": "ok"}
 
-@app.get("/", methods=["GET", "HEAD"])
+@app.get("/")  # No need to specify methods
 def home():
     return {"message": "FastAPI is running!"}
 
-@app.get("/health", methods=["GET", "HEAD"])
+@app.get("/health")  # No need to specify methods
 def health_check():
     return {"status": "ok"}
+
 
 @app.post("/api/")
 async def process_question(
