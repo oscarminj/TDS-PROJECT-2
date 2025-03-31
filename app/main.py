@@ -13,9 +13,12 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "HEAD", "POST"],  # Explicitly allow HEAD
     allow_headers=["*"],
 )
+@app.head("/")
+async def head_check():
+    return {"status": "ok"}
 
 @app.get("/", methods=["GET", "HEAD"])
 def home():
