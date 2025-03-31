@@ -17,11 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
+@app.get("/", methods=["GET", "HEAD"])
 def home():
     return {"message": "FastAPI is running!"}
 
-@app.get("/health")
+@app.get("/health", methods=["GET", "HEAD"])
 def health_check():
     return {"status": "ok"}
 
